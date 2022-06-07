@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -96,5 +97,12 @@ public class PlayerMovement : MonoBehaviour
         velocidade = new Vector2(inputX * speed, inputY * speed);
         rb.MovePosition(rb.position + velocidade * Time.fixedDeltaTime);
 
+    }
+
+    void OnTriggerEnter2D(Collider2D collider){
+        if(collider.gameObject.tag == "Flashlight"){
+            print("MORRI");
+            SceneManager.LoadScene("Menu");
+        }
     }
 }

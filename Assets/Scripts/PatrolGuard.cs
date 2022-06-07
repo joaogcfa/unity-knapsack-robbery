@@ -10,6 +10,7 @@ public class PatrolGuard : MonoBehaviour
     public Transform[] moveSpots;
     private int spot;
     public float rotation;
+    Vector2 position_;
 
     public Animator animation;
 
@@ -27,16 +28,27 @@ public class PatrolGuard : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        position_=transform.position;
+
         transform.position = Vector2.MoveTowards(transform.position, moveSpots[spot].position, speed * Time.deltaTime);
 
-        // print(transform.position);
+        // print(transform.position.x);
+       
+        if(Mathf.Round((position_.y)) < Mathf.Round((transform.position.y))){
+            animation.SetBool("isUp", true);
 
-        // Vector2 variacao = moveSpots[0].position - moveSpots[1].position;
-        // print(variacao);
+        }else if(Mathf.Round((position_.y))> Mathf.Round((transform.position.y))){
+            animation.SetBool("isDown", true);
 
-        // if(variacao.y > 0){
-        //     animation.SetBool("isDown", true);
-        // }
+        }
+
+        if(Mathf.Round((position_.x)) < Mathf.Round((transform.position.x))){
+            animation.SetBool("isRight", true);
+
+        }else if(Mathf.Round((position_.x))> Mathf.Round((transform.position.x))){
+            animation.SetBool("isLeft", true);
+
+        }
 
 
         if(Vector2.Distance(transform.position, moveSpots[spot].position) < 0.2f) 
