@@ -10,6 +10,7 @@ public class Patrol : MonoBehaviour
     public Transform[] moveSpots;
     private int spot;
     public float rotation;
+    public int limit;
 
 
     // Start is called before the first frame update
@@ -29,10 +30,9 @@ public class Patrol : MonoBehaviour
         if(Vector2.Distance(transform.position, moveSpots[spot].position) < 0.2f) 
         {
             if(waitTime <= 0) 
-            {
-                if(spot == 0) {
-                    spot = 1;
-                } else {
+            {   
+                spot++;
+                if(spot == limit) {
                     spot = 0;
                 }
                 

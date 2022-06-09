@@ -12,6 +12,8 @@ public class PatrolGuard : MonoBehaviour
     public float rotation;
     Vector2 position_;
 
+    public int limit;
+
     public Animator animation;
 
     // Start is called before the first frame update
@@ -60,11 +62,10 @@ public class PatrolGuard : MonoBehaviour
 
             if(waitTime <= 0) 
             {
-                if(spot == 0) {
-                    spot = 1;
-                } else {
+                spot++;
+                if(spot == limit) {
                     spot = 0;
-                }
+                } 
                 waitTime = startWaitTime;
                 // this.gameObject.GetComponent<GuardRotation>().stopRotation = false;
 
