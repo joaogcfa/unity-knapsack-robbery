@@ -6,6 +6,7 @@ public class RobbedBlueOrange : MonoBehaviour
 {
     public GameObject player1;
     public GameObject player2;
+    public GameObject gm;
     float distanceBlue;
     float distanceOrange;
 
@@ -13,7 +14,9 @@ public class RobbedBlueOrange : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        gm = GameObject.Find("GameManager");
+        player1 = GameObject.Find("Player1");
+        player2 = GameObject.Find("Player2");
     }
 
     // Update is called once per frame
@@ -24,6 +27,7 @@ public class RobbedBlueOrange : MonoBehaviour
         if(distanceBlue < 8 && distanceOrange < 8) {
             print("ENTREI");
             if(Input.GetKey("space") && Input.GetKey(KeyCode.E)) {
+                gm.GetComponent<GameManager>().itemsRobbed += 1;
                 Destroy(gameObject);
             }
         }
