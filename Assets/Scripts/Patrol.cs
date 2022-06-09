@@ -35,7 +35,8 @@ public class Patrol : MonoBehaviour
                 } else {
                     spot = 0;
                 }
-                transform.Rotate(0f, 0f, 180f);
+                
+                
                 waitTime = startWaitTime;
                 this.gameObject.GetComponent<GuardRotation>().stopRotation = false;
             } else {
