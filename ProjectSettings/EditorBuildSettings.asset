@@ -9,6 +9,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Menu.unity
     guid: b87330260e8b648cbb8d8bd3842d8f38
   - enabled: 1
-    path: Assets/Scenes/Aninha.unity
+    path: Assets/Scenes/Level2.unity
     guid: 2a0a4651be45ebb45b6d11dd1927c4ef
   m_configObjects: {}
