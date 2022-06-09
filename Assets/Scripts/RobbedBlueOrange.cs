@@ -26,7 +26,7 @@ public class RobbedBlueOrange : MonoBehaviour
         distanceOrange = Vector3.Distance(transform.position, player2.transform.position);
         if(distanceBlue < 8 && distanceOrange < 8) {
             print("ENTREI");
-            if(Input.GetKey("space") && Input.GetKey(KeyCode.E)) {
+            if(Input.GetKey(KeyCode.RightShift) && Input.GetKey(KeyCode.E)) {
                 gm.GetComponent<GameManager>().itemsRobbed += 1;
                 Destroy(gameObject);
             }

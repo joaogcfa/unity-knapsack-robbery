@@ -20,7 +20,7 @@ public class RobbedBlue : MonoBehaviour
     {
         distanceBetweenObjects = Vector3.Distance(transform.position, player.transform.position);
         if(distanceBetweenObjects < 3) {
-            if(Input.GetKeyDown("space")) {
+            if(Input.GetKeyDown(KeyCode.RightShift)) {
                 gm.GetComponent<GameManager>().itemsRobbed += 1;
                 Destroy(gameObject);
             }
