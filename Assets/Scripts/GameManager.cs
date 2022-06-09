@@ -2,42 +2,27 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameManager
+public class GameManager : MonoBehaviour
 {
-    private static GameManager _instance;
-    public enum GameState { MENU, GAME, PAUSE, ENDGAME };
+    public int itemsToRob;
+    public int itemsRobbed;
 
-    public GameState gameState { get; private set; }
-    public int pontos;
-    public delegate void ChangeStateDelegate();
-    public static ChangeStateDelegate changeStateDelegate;
+    public GameObject door;
 
-    public static GameManager GetInstance()
+
+    // Start is called before the first frame update
+    void Start()
     {
-        if (_instance == null)
-        {
-            _instance = new GameManager();
+        door = GameObject.Find("Door");
+        GameObject.Find("Door").SetActive(false);
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        if (itemsRobbed == itemsToRob){
+            door.SetActive(true);
         }
-
-        return _instance;
-    }
-    private GameManager()
-    {
-    
-        pontos = 0;
-        gameState = GameState.MENU;
-    }
-
-    private void Reset()
-    {
-        pontos = 0;
-    }
-
-    public void ChangeState(GameState nextState)
-    {
-        if ((gameState == GameState.ENDGAME || gameState == GameState.MENU) && nextState == GameState.GAME)
-            Reset();
-        gameState = nextState;
-        changeStateDelegate();
+        
     }
 }
