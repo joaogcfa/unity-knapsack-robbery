@@ -22,13 +22,13 @@ public class RobbedBlue : MonoBehaviour
     {
         distanceBetweenObjects = Vector3.Distance(transform.position, player.transform.position);
         if(distanceBetweenObjects < 3) {
-            if(Input.GetKeyDown("space")) {
+            if(Input.GetKeyDown(KeyCode.RightShift)) {
                 gm.GetComponent<GameManager>().itemsRobbed += 1;
+                Destroy(gameObject);
                 valueTxt = GameObject.Find("TextP2").GetComponent<UnityEngine.UI.Text>().text;
                 value += int.Parse(valueTxt.Substring(1,valueTxt.Length-4));
                 valueTxt = '$' + value.ToString() + ",00" ;
                 GameObject.Find("TextP2").GetComponent<UnityEngine.UI.Text>().text = valueTxt;
-                Destroy(gameObject);
             }
         }
     }

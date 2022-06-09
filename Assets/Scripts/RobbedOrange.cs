@@ -23,6 +23,7 @@ public class RobbedOrange : MonoBehaviour
     void Update()
     {
         distanceBetweenObjects = Vector3.Distance(transform.position, player.transform.position);
+        print(transform.position);
         if(distanceBetweenObjects < 3) {
             if(Input.GetKeyDown(KeyCode.E)) {
                 gm.GetComponent<GameManager>().itemsRobbed += 1;
