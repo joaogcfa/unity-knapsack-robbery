@@ -24,11 +24,11 @@ public class RobbedBlue : MonoBehaviour
         if(distanceBetweenObjects < 3) {
             if(Input.GetKeyDown(KeyCode.RightShift)) {
                 gm.GetComponent<GameManager>().itemsRobbed += 1;
+                Destroy(gameObject);
                 valueTxt = GameObject.Find("TextP2").GetComponent<UnityEngine.UI.Text>().text;
                 value += int.Parse(valueTxt.Substring(1,valueTxt.Length-4));
                 valueTxt = '$' + value.ToString() + ",00" ;
                 GameObject.Find("TextP2").GetComponent<UnityEngine.UI.Text>().text = valueTxt;
-                Destroy(gameObject);
             }
         }
     }

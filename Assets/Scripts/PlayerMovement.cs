@@ -12,6 +12,8 @@ public class PlayerMovement : MonoBehaviour
     public float inputX;
     public float inputY;
     public Animator animation;
+    public AudioSource footsteps;
+    public AudioClip audio;
 
 
     float x, y;
@@ -21,6 +23,7 @@ public class PlayerMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         animation = GetComponent<Animator>();
+        footsteps = GetComponent<AudioSource>();
 
     }
 
@@ -46,8 +49,12 @@ public class PlayerMovement : MonoBehaviour
             inputY = Input.GetAxis("P2Vertical");
         }
 
+        print(inputX);
         if (inputY < 0)
         {
+            if(!footsteps.isPlaying) {
+                footsteps.PlayOneShot(audio);
+            }
             animation.SetBool("isWalking", true);
             animation.SetBool("isBack", false);
 
@@ -55,6 +62,9 @@ public class PlayerMovement : MonoBehaviour
         }
         else if (inputY > 0)
         {
+            if(!footsteps.isPlaying) {
+                footsteps.PlayOneShot(audio);
+            }
             animation.SetBool("isWalking", false);
             animation.SetBool("isBack", true);
 
@@ -62,7 +72,6 @@ public class PlayerMovement : MonoBehaviour
         }
         else
         {
-
             animation.SetBool("isWalking", false);
             animation.SetBool("isBack", false);
 
@@ -71,6 +80,9 @@ public class PlayerMovement : MonoBehaviour
 
         if (inputX < 0)
         {
+            if(!footsteps.isPlaying) {
+                footsteps.PlayOneShot(audio);
+            }
             animation.SetBool("isLeft", true);
             animation.SetBool("isRight", false);
 
@@ -78,6 +90,9 @@ public class PlayerMovement : MonoBehaviour
         }
         else if (inputX > 0)
         {
+            if(!footsteps.isPlaying) {
+                footsteps.PlayOneShot(audio);
+            }
             animation.SetBool("isLeft", false);
             animation.SetBool("isRight", true);
 
@@ -85,7 +100,6 @@ public class PlayerMovement : MonoBehaviour
         }
         else
         {
-
             animation.SetBool("isLeft", false);
             animation.SetBool("isRight", false);
 
