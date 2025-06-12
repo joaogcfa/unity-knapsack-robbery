@@ -27,3 +27,24 @@ unity-knapsack-robbery/
 └── README.md
 ```
 
+---
+
+## Contributing
+
+Feel free to fork the project, create branches, and submit pull requests. Suggestions and bug reports are always welcome via GitHub Issues.
+
+---
+
+## License
+
+This project is open source under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+---
+
+## Contact
+
+Created by João GCFA  
+GitHub: [joaogcfa](https://github.com/joaogcfa)  
+Game on itch.io: [Hotline Medieval](https://sirjohnwilliam.itch.io/knapsack-robbery)
+
+
